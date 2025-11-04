@@ -1,0 +1,45 @@
+.custom-navbar {
+  background-color: #2E7D32 !important; /* Kurumsal yeşil */
+  padding: 12px 0;
+}
+
+.custom-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8); /* yarı saydam */
+  backdrop-filter: blur(6px); /* bulanıklık efekti, çok şık durur */
+}
+
+
+.navbar-brand {
+  color: white !important;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand:hover {
+  color: #E8F5E9 !important;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin-left: 10px;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #E8F5E9 !important; /* Açık yeşil hover */
+}
+
+/* Responsive menü butonu (hamburger) rengi */
+.navbar-toggler {
+  border-color: white !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
