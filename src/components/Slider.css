@@ -1,16 +1,59 @@
 .main-slider {
-  position:absolute;
+  position: absolute;
   width: 100%;
   height: 100vh; /* tam ekran */
-  top:0;
+  top: 0;
+  left: 0;
+}
+
+.slide-item {
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
 
 .main-slider img {
-  width:100%;
+  width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* senin istediğin gibi */
+  background-color: #000; /* kenarlarda boşluk olursa kontrast sağlar */
 }
 
-h1 {
-  color:white;
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 10;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4); /* yarı saydam arka plan */
+  border-radius: 10px;
+}
+
+.slide-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.slide-btn {
+  background-color: #00a86b;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slide-btn:hover {
+  background-color: #008f5c;
 }

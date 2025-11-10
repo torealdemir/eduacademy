@@ -16,11 +16,25 @@ export default function Slider() {
       className="main-slider"
     >
       <SwiperSlide>
-        <img src="/images/slider/slide1.jpg" alt="Slide 1" />
+        <div className="slide-item">
+          <img src="/images/slider/slide1.jpg" alt="Slide 1" />
+          <div className="slide-content">
+            <h2>Geleceğin Şehirlerini Planlıyoruz</h2>
+            <p>Sürdürülebilir kalkınma ve akıllı şehir çözümleriyle...</p>
+            <button className="slide-btn">Daha Fazla Bilgi</button>
+          </div>
+        </div>
       </SwiperSlide>
 
       <SwiperSlide>
-        <img src="/images/slider/slide2.jpg" alt="Slide 2" />
+        <div className="slide-item">
+          <img src="/images/slider/slide2.jpg" alt="Slide 2" />
+          <div className="slide-content">
+            <h2>Doğayla Uyumlu Yaşam Alanları</h2>
+            <p>Yeşil alanlar, yenilenebilir enerji ve modern tasarım bir arada.</p>
+            <button className="slide-btn">Projelerimizi Gör</button>
+          </div>
+        </div>
       </SwiperSlide>
     </Swiper>
   );
