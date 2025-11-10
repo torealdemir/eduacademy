@@ -1,45 +1,71 @@
 .custom-navbar {
-  background-color: #2E7D32 !important; /* Kurumsal yeşil */
-  padding: 12px 0;
+    position: absolute;
+    top: 10vh;
+    /* bottom: 90vh; */
+    /* left: 0; <-- Bu kuralı silin veya yorum satırı yapın */
+    
+    width: 80%;
+    left: 50%; /* Doğru merkezleme için kalmalı */
+    transform: translateX(-50%); /* Doğru merkezleme için kalmalı */
+    
+    border-radius: 15px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    
+    /* YENİ: Navbar'ın kendi içinde dikey boşluk olmasın (Container'a vereceğiz) */
+    padding: 0; 
 }
-
-.custom-navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.8); /* yarı saydam */
-  backdrop-filter: blur(6px); /* bulanıklık efekti, çok şık durur */
-}
-
 
 .navbar-brand {
-  color: white !important;
+  color: #2E7D32 !important;
   font-size: 1.4rem;
   letter-spacing: 0.5px;
 }
 
 .navbar-brand:hover {
-  color: #E8F5E9 !important;
+  color: #1B5E20 !important;
 }
 
 .nav-link {
-  color: white !important;
+  color: #2E7D32 !important;
   font-weight: 500;
   margin-left: 10px;
   transition: 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #E8F5E9 !important; /* Açık yeşil hover */
+  color: #1B5E20 !important;
 }
 
-/* Responsive menü butonu (hamburger) rengi */
+
+
+
+.custom-navbar .container {
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+}
+
 .navbar-toggler {
-  border-color: white !important;
+    border-color: #2E7D32 !important;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    
+    /* Gerekli değilse bu padding'i kaldırın, zaten container'a verdik: */
+    /* padding: 8px 10px; */ 
+    
+    /* VEYA: Dikeyde ortalamayı garanti altına almak için butona yükseklik verin */
+    height: 40px; 
+    line-height: 1; 
 }
-
+/* İkonun kendisi için ekstra yükseklik sıfırlaması */
 .navbar-toggler-icon {
-  filter: invert(1);
+    filter: invert(0.4);
+    /* Gerekirse ikonun height değerini silin, Bootstrap'in SVG'si daha iyi çalışır */
+    /* height: 1.5em; */ 
+}
+.navbar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }

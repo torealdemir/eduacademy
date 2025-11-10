@@ -2,7 +2,7 @@ import './Navbar.css'
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar shadow-sm w-100">
+    <nav className="navbar navbar-expand-lg custom-navbar shadow-sm">
       <div className="container">
         <a className="navbar-brand fw-bold" href="#">Patika Akademi</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
