@@ -16,7 +16,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain; /* senin istediğin gibi */
-  background-color: #000; /* kenarlarda boşluk olursa kontrast sağlar */
+  background-color: #000000; /* kenarlarda boşluk olursa kontrast sağlar */
 }
 
 .slide-content {
