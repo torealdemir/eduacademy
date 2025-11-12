@@ -1,59 +1,133 @@
+/* SLIDER — position/height sabit */
 .main-slider {
   position: absolute;
   width: 100%;
   height: 100vh; /* tam ekran */
   top: 0;
   left: 0;
+  overflow: hidden;
+
+  /* yeşil tonlu yumuşak gradyan arka plan */
+  background:
+    radial-gradient(900px 400px at 20% 25%, rgba(14,161,101,.10), transparent 60%),
+    radial-gradient(700px 380px at 80% 70%, rgba(14,161,101,.08), transparent 60%),
+    #f4fff9;
 }
 
+/* her slide */
 .slide-item {
   position: relative;
   width: 100%;
   height: 100vh;
 }
 
+/* görseller */
 .main-slider img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* senin istediğin gibi */
-  background-color: #000000; /* kenarlarda boşluk olursa kontrast sağlar */
+  object-fit: contain; /* arka plan ile uyumlu */
+  background: transparent;
+  mix-blend-mode: multiply; /* yeşilimsi gradyanla uyumlu hale getirir */
 }
 
+/* slide üzerindeki içerik kutusu */
 .slide-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
   text-align: center;
   z-index: 10;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.4); /* yarı saydam arka plan */
-  border-radius: 10px;
+  color: #0f2a26; /* koyu yeşil yazı rengi */
+
+  /* modern cam efekti kutu */
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(14, 161, 101, 0.25);
+  border-radius: 16px;
+  padding: 32px 48px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
 }
 
 .slide-content h2 {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: #0ea165; /* marka yeşili */
+  letter-spacing: 0.3px;
   margin-bottom: 10px;
 }
 
 .slide-content p {
   font-size: 1.1rem;
-  margin-bottom: 20px;
+  color: #1c3d33;
+  margin-bottom: 25px;
+  line-height: 1.5;
 }
 
+/* buton */
 .slide-btn {
-  background-color: #00a86b;
-  color: white;
+  background-color: #ffe35a;
+  color: #0f2a26;
   border: none;
   padding: 12px 28px;
-  border-radius: 25px;
+  border-radius: 30px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .slide-btn:hover {
-  background-color: #008f5c;
+  background-color: #ffd940;
+  transform: translateY(-2px);
+}
+
+/* slide geçişleri (swiper kontrolleriyle bütünleşsin) */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f4fff9;                     /* açık mint ikon */
+  background: rgba(15, 42, 38, 0.45); /* koyu yeşilimsi cam */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(14, 161, 101, 0.9);  /* marka yeşili */
+  color: #fff;                          /* ikon beyaz */
+  transform: scale(1.05);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #0ea165; /* marka yeşili */
+  box-shadow: 0 0 0 3px rgba(14,161,101,.25);
+}
+/* responsive tipografi */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 24px 32px;
+  }
+  .slide-content h2 {
+    font-size: 1.6rem;
+  }
+  .slide-content p {
+    font-size: 1rem;
+  }
 }
