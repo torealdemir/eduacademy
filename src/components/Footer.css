@@ -1,0 +1,74 @@
+.patika-footer {
+  background: #0f2a26;            /* koyu yeşil zemin */
+  color: #cfeee2;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #b2f5de;
+  text-transform: lowercase;
+}
+
+.footer-text {
+  color: #9bd4c4;
+  line-height: 1.6;
+}
+
+.footer-head {
+  color: #b2f5de;
+  letter-spacing: .3px;
+}
+
+.footer-list li + li { margin-top: .6rem; }
+.footer-list a {
+  color: #cfeee2;
+  text-decoration: none;
+}
+.footer-list a:hover { color: #b2f5de; text-decoration: underline; }
+
+.footer-contact li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: .6rem;
+  align-items: start;
+  color: #cfeee2;
+  margin-bottom: .75rem;
+}
+.footer-contact .icn { color: #63d3a7; margin-top: .15rem; }
+.footer-contact a { color: #cfeee2; }
+.footer-contact a:hover { color: #b2f5de; }
+
+.social-btn {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  color: #b2f5de;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease;
+}
+.social-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.12);
+}
+
+/* Alt şerit */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: #0e2522;
+}
+.footer-bottom small { color: #9bd4c4; }
+.footer-bottom .link-underline {
+  color: #9bd4c4; text-decoration: none;
+}
+.footer-bottom .link-underline:hover {
+  text-decoration: underline;
+}
+
+/* Responsive küçük düzeltmeler */
+@media (max-width: 991.98px) {
+  .patika-footer .footer-logo { font-size: 24px; }
+}

@@ -1,6 +1,7 @@
 .path-container {
   position: relative;
   padding-left: 40px;
+  height: 82vh;
 }
 
 .path-step {
@@ -21,7 +22,7 @@
   font-size: 1.1rem;
   flex-shrink: 0;
   z-index: 2;
-  position: relative;
+  /* position: relative; */
 }
 
 .step-content h5 {

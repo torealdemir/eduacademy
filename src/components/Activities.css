@@ -1,0 +1,108 @@
+.prefooter-section {
+  position: relative;
+  padding: 56px 0 64px;
+  background-color: #f4fff9; /* açık yeşil taban */
+  background-image:
+    radial-gradient(1200px 600px at 10% 25%, rgba(18,168,107,0.08), transparent 60%),
+    radial-gradient(900px 500px at 85% 70%, rgba(18,168,107,0.10), transparent 65%),
+    radial-gradient(600px 400px at 50% 50%, rgba(14,161,101,0.06), transparent 60%),
+    /* organik kıvrım deseni - inline SVG (very light) */
+    url("data:image/svg+xml;utf8,\
+      <svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'>\
+        <defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>\
+          <stop offset='0' stop-color='%23bff2dc' stop-opacity='0.25'/>\
+          <stop offset='1' stop-color='%23d7f9ea' stop-opacity='0.25'/>\
+        </linearGradient></defs>\
+        <path d='M-20 120 C 60 40, 140 40, 220 120 S 380 200, 460 120' fill='none' stroke='url(%23g)' stroke-width='18' stroke-linecap='round'/>\
+        <path d='M-40 260 C 40 180, 140 180, 220 260 S 380 340, 460 260' fill='none' stroke='url(%23g)' stroke-width='18' stroke-linecap='round'/>\
+      </svg>");
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-size: cover, cover, cover, 460px 460px;
+  background-position: center, center, center, 0 0;
+}
+
+/* başlık */
+.section-title { letter-spacing: .3px; }
+
+/* etkinlik kartı */
+.event-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.event-card img {
+  width: 100%; height: 240px; object-fit: cover;
+  display: block;
+  filter: saturate(.95) contrast(1.02);
+}
+.event-overlay {
+  position: absolute; inset: auto 0 0 0;
+  padding: 14px 16px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,.65) 90%);
+}
+
+/* swiper okları/pagination */
+.events-swiper .swiper-button-next,
+.events-swiper .swiper-button-prev,
+.testi-swiper .swiper-button-next,
+.testi-swiper .swiper-button-prev {
+  color: #0ea165;
+}
+.events-swiper .swiper-pagination-bullet-active,
+.testi-swiper .swiper-pagination-bullet-active {
+  background: #0ea165;
+}
+
+/* ayraç */
+.divider .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #0ea165; margin: 0 12px;
+}
+.divider .dash {
+  width: min(60%, 560px); height: 1px; background: #0ea16533;
+}
+
+/* form */
+.pf-input {
+  border-radius: 10px;
+  border: 1px solid #cde7dd;
+  background: #f6fffb;
+}
+.pf-input:focus { border-color: #0ea165; box-shadow: 0 0 0 .2rem rgba(14,161,101,.15); }
+
+/* gönder butonu */
+.pf-btn {
+  background: #ffe35a;
+  color: #0f2a26;
+  border: none;
+  border-radius: 28px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+.pf-btn:hover { background: #ffd940; color: #0f2a26; }
+.pf-cta-icon { color: #0ea165; font-size: 20px; }
+
+/* testimonial */
+.testi-card {
+  background: #12a86b;
+  color: #093126;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  position: relative;
+  min-height: 220px;
+}
+.testi-quote {
+  position: absolute; top: -16px; left: 16px;
+  font-size: 64px; line-height: 1; color: #0f743f;
+}
+.testi-avatar {
+  width: 54px; height: 54px; border-radius: 50%;
+  object-fit: cover; border: 3px solid #e7fff5;
+}
+
+/* responsive */
+@media (max-width: 576px) {
+  .event-card img { height: 190px; }
+}
