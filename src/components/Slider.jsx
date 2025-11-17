@@ -4,6 +4,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Slider.css";
+import slide1 from "../assets/slider/slide1.jpg";
+import slide2 from "../assets/slider/slide2.jpg";
+
+
 
 export default function Slider() {
   return (
@@ -17,7 +21,7 @@ export default function Slider() {
     >
       <SwiperSlide>
         <div className="slide-item">
-          <img src="/images/slider/slide1.jpg" alt="Slide 1" />
+          <img src={slide1} alt="Slide 1" />
           <div className="slide-content">
             <h2>Geleceğin Şehirlerini Planlıyoruz</h2>
             <p>Sürdürülebilir kalkınma ve akıllı şehir çözümleriyle...</p>
@@ -28,7 +32,7 @@ export default function Slider() {
 
       <SwiperSlide>
         <div className="slide-item">
-          <img src="/images/slider/slide2.jpg" alt="Slide 2" />
+          <img src={slide2} alt="Slide 2" />
           <div className="slide-content">
             <h2>Doğayla Uyumlu Yaşam Alanları</h2>
             <p>Yeşil alanlar, yenilenebilir enerji ve modern tasarım bir arada.</p>
