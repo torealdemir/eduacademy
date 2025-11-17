@@ -1,44 +1,283 @@
-.path-container {
-  position: relative;
-  padding-left: 40px;
-  height: 82vh;
-}
-
-.path-step {
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.step-number {
-  width: 40px;
-  height: 40px;
-  background: #00a86b;
-  color: white;
-  border-radius: 50%;
+/* === TAM EKRAN SECTION (100vh) === */
+.serpentine-section {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  z-index: 2;
-  /* position: relative; */
+  padding: 3rem 0;
+  background: radial-gradient(circle at 10% 0%, #158c72 0, #071f1c 40%, #020809 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.step-content h5 {
-  font-weight: 600;
+/* Glow efektleri */
+.serpentine-section::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(0, 255, 170, 0.3), transparent 70%);
+  top: -120px;
+  left: -80px;
+  pointer-events: none;
+}
+.serpentine-section::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(248, 231, 28, 0.28), transparent 70%);
+  bottom: -80px;
+  right: -60px;
+  pointer-events: none;
 }
 
-.step-content p {
-  margin-bottom: 0;
-  color: #555;
-}
-
-.path-line {
-  width: 4px;
-  background: #00a86b;
-  top: 0;
-  bottom: 0;
-  left: 20px; /* step-number'ın ortasına hizalama */
+/* İç container */
+.serpentine-container {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
   z-index: 1;
+}
+
+/* Başlık */
+.serpentine-section h2 {
+  letter-spacing: 0.04em;
+}
+
+/* === YOL / PANEL === */
+.serpentine-wrapper {
+  width: 100%;
+  height: 480px; /* YÜKSELTİLDİ */
+  position: relative;
+  padding: 2rem 1.5rem 2rem;
+}
+
+/* Cam panel */
+.serpentine-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 8px 12px 10px;
+  border-radius: 24px;
+  background: rgba(3, 20, 19, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* SVG serpentine path */
+.serpentine-path {
+  width: 100%;
+  height: 440px; /* YÜKSELTİLDİ */
+  position: relative;
+  z-index: 1;
+}
+
+/* Dalgalı çizgi animasyonu */
+.animated-line {
+  stroke: #21d08b;
+  stroke-dasharray: 14 14;
+  animation: flowing 3s linear infinite;
+}
+
+@keyframes flowing {
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+
+/* === ADIMLAR: GRID SİSTEMİ === */
+.steps-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  pointer-events: none;
+  padding: 0 1.5rem;
+  z-index: 2;
+}
+
+/* Step elemanları */
+.step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  pointer-events: auto;
+}
+
+/* Dekor çizgi */
+.step-item::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), transparent);
+  top: 56px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Daire */
+.step-circle {
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at 30% 0, #ffffff, #f3faf7);
+  border: 4px solid #21d08b;
+  color: #099268;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.45),
+    0 0 0 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.step-circle:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.6),
+    0 0 0 4px rgba(33, 208, 139, 0.5);
+}
+
+/* Etiket */
+.step-label {
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #e9fbf5;
+  white-space: nowrap;
+  background: rgba(4, 36, 31, 0.9);
+  border: 1px solid rgba(132, 225, 188, 0.6);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+/* Etiket renk noktası */
+.step-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #21d08b;
+}
+
+/* Zigzag hizalama */
+.label-up {
+  order: -1; /* üstte */
+}
+
+.label-down {
+  order: 1; /* altta */
+}
+
+/* Hover */
+.step-label:hover {
+  background: linear-gradient(90deg, #21d08b, #16a085);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+  transform: translateY(-3px);
+}
+
+/* === RESPONSIVE AYARLAR === */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .serpentine-wrapper {
+    height: 360px;
+    padding-inline: 0.75rem;
+  }
+
+  .serpentine-path {
+    height: 320px;
+  }
+
+  .steps-layer {
+    padding-inline: 0.75rem;
+  }
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  .serpentine-section {
+    min-height: auto;
+    padding: 2.5rem 0 3rem;
+    align-items: flex-start;
+  }
+
+  .serpentine-wrapper {
+    height: auto;
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
+  .serpentine-wrapper::before {
+    inset: 8px 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* Zigzag çizgi yok */
+  .serpentine-path {
+    display: none;
+  }
+
+  /* Adımlar dikey listeye döner */
+  .steps-layer {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 0.5rem 0 0.5rem;
+  }
+
+  .step-item::after {
+    display: none;
+  }
+
+  /* Mobilde etiket her zaman altta */
+  .step-label,
+  .label-up,
+  .label-down {
+    order: 1;
+  }
+
+  .serpentine-section {
+    padding-top: 4rem !important;  /* Başlığı aşağı çekiyor */
+  }
+
+  .serpentine-title,
+  .serpentine-title-minimal,
+  .serpentine-title-future {
+    margin-top: 1.5rem;     /* Başlık offset düzeltme */
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+}
+
+.serpentine-title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  color: #eafff8;
+  margin-bottom: 3rem;
+  letter-spacing: 0.03em;
+
+  background: linear-gradient(90deg, #6fffd6, #b2ffe6, #6fffd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 18px rgba(0, 255, 170, 0.4),
+               0 0 34px rgba(0, 255, 170, 0.18);
 }
