@@ -12,20 +12,21 @@
   background: var(--g-card, rgba(255, 255, 255, 0.72));
   border: 1px solid var(--g-stroke, rgba(14, 161, 101, 0.18));
   -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   box-shadow:
-    0 10px 28px rgba(0,0,0,.12),
-    inset 0 0 0 1px rgba(255,255,255,.35);
+    0 10px 28px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 
-  /* dikey boşluğu container yönetiyor */
   padding: 0;
 }
 
 @media (max-width: 991.98px) {
-  .custom-navbar { width: 94%; }
+  .custom-navbar {
+    width: 94%;
+  }
 }
 
-/* içerideki yatay boşluk */
+/* içerideki yatay/dikey boşluk */
 .custom-navbar .container {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -49,58 +50,116 @@
 .navbar-brand::after {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -6px;
-  height: 2px; border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--g-green, #0ea165), transparent);
-  opacity: .55;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--g-green, #0ea165),
+    transparent
+  );
+  opacity: 0.55;
 }
 
 .nav-link {
   color: #1f4a3d !important;
   font-weight: 600;
   margin-left: 10px;
-  padding: .38rem .72rem;
+  padding: 0.38rem 0.72rem;
   border-radius: 10px;
-  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .nav-link:hover,
 .nav-link:focus {
   color: #0b3f32 !important;
-  background: rgba(14, 161, 101, .10);
+  background: rgba(14, 161, 101, 0.1);
   text-decoration: none;
 }
 
-
 .nav-link.active {
   color: #0b3f32 !important;
-  background: rgba(14, 161, 101, .16);
-  box-shadow: inset 0 0 0 1px var(--g-stroke, rgba(14,161,101,.18));
+  background: rgba(14, 161, 101, 0.16);
+  box-shadow: inset 0 0 0 1px
+    var(--g-stroke, rgba(14, 161, 101, 0.18));
 }
 
-
-.custom-navbar .container {
-    padding-top: 10px; 
-    padding-bottom: 10px; 
-}
-
+/* NAVBAR TOGGLER */
 .navbar-toggler {
   border-color: var(--g-green, #0ea165) !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px; 
+  height: 40px;
   line-height: 1;
   border-radius: 10px;
-  background: rgba(255,255,255,.6);
+  background: rgba(255, 255, 255, 0.6);
   -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
-/* İkonun kendisi için ekstra yükseklik sıfırlaması */
+
 .navbar-toggler-icon {
-  filter: none; /* bootstrap’in kendi svg ikonu */
+  filter: none;
 }
+
 .navbar {
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+/* === DROPDOWN STİLLERİ === */
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+/* Dropdown menü — cam kart görünümü */
+.custom-dropdown {
+  margin-top: 0.4rem;
+  border-radius: 14px;
+  border: 1px solid rgba(14, 161, 101, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem 0;
+}
+
+/* Sağ tarafa çok taşmasın diye */
+@media (min-width: 992px) {
+  .custom-dropdown {
+    transform-origin: top right;
+  }
+}
+
+/* Dropdown item */
+.dropdown-item {
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.45rem 1rem;
+  color: #184132;
+  transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: rgba(14, 161, 101, 0.08);
+  color: #0b3f32;
+  padding-left: 1.1rem;
+}
+
+/* Divider */
+.dropdown-divider {
+  margin: 0.3rem 0.75rem;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Dropdown toggle ok işareti biraz daha net */
+.nav-link.dropdown-toggle::after {
+  margin-left: 0.3rem;
+  vertical-align: 0.08em;
 }
