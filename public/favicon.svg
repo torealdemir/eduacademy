@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Graduation Cap -->
+  <polygon points="32,8 4,24 32,40 60,24" fill="#00a561"/>
+  <polygon points="32,40 4,24 4,28 32,44 60,28 60,24" fill="#008f54"/>
+  <rect x="30" y="40" width="4" height="16" fill="#1b2f30"/>
+  <circle cx="32" cy="58" r="4" fill="#c4d600"/>
+  <path d="M32,58 Q38,62 36,68" stroke="#c4d600" stroke-width="2" fill="none"/>
+</svg>
