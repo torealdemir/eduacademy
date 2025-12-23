@@ -7,7 +7,7 @@ export default function Programs() {
         className="
           w-full
           aspect-video       /* 16:9 */
-          max-h-[100svh]
+          max-h-[92svh]
           overflow-hidden
           pointer-events-none select-none
         "
