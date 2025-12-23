@@ -6,11 +6,9 @@ export default function Programs() {
       <div
         className="
           relative w-full
-          h-[70svh] sm:h-[85svh] lg:h-[100svh]
-          flex items-center justify-center
+          h-[80svh] sm:h-[90svh] lg:h-screen
           overflow-hidden
           pointer-events-none select-none
-          px-4 sm:px-0
         "
         aria-hidden="true"
       >
@@ -20,10 +18,19 @@ export default function Programs() {
           draggable={false}
           className="
             w-full h-full
+
+            /* MOBİL */
             object-contain
+            px-4
+
+            /* TABLET+ */
+            sm:px-0
             sm:object-cover
-            sm:scale-[1.03]
-            lg:scale-[1.06]
+
+            /* DESKTOP: kenar boşluk yok */
+            lg:object-cover
+            lg:scale-[1.02]
+
             object-center
           "
         />
